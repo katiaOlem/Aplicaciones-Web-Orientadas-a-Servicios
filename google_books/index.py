@@ -27,6 +27,6 @@ class Index():
       "imagen":imagen,
       "nombre_libro":"Libro  "+book_name,
       "autor":"Autor  "+autor,
-      "url":"Compra  "+link
+      "url":"Compralo ya! "+link
     }
     return render.index(libros)
