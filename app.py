@@ -1,7 +1,7 @@
 import web
 
 urls = ('/', 
-  'google_books.index.Index'
+  'api_nombre_api.index.Index'
 )
 app = web.application(urls, globals())
 
