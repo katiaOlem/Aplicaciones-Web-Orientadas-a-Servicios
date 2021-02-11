@@ -12,21 +12,21 @@ class Index():
     nombre=form.nombre
     url = "https://restcountries.eu/rest/v2/all"
     response = requests.get(url)
-    print(response.headers["Content-Type"])
     response = response.json()
     for item in response:
       
       capital = (item["capital"])
       region = (item["region"])
-      popu = (item["population"])
       native = (item["nativeName"])
+      flagi = (item["flag"])
+      imagen = "<img src='"+flagi+"'/>"
  
     datos={
-      "PAIS":"Pais"+nombre,
-      "CAPITAL":"Capital:"+capital,
-      "REGION":"Region:"+region,
-      "POPULATION":"Sub-Region:"+popu,
-      "NATIVE":"Native: "+native
+      "PAIS":"Pais:  "+nombre,
+      "CAPITAL":"Capital:   "+capital,
+      "REGION":"Region:    "+region,
+      "NATIVE":"Native:   "+native,
+      "FLAG":"Bandera:"   +imagen
     }
       
     return render.index(datos)

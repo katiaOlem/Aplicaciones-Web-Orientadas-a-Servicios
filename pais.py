@@ -10,7 +10,7 @@ for item in response:
   pais = (item["name"])
   capital = (item["capital"])
   region = (item["region"])
-  popu = (item["population"])
   native = (item["nativeName"])
-  print("Pais:"+pais,"  Capital:"+capital,"  Region:"+region,"  Population: ",+popu, "  Native: "+native)
+  flag = (item["flag"])
+  print("Pais:"+pais,"  Capital:"+capital,"  Region:"+region, "  Native: "+native)
 
