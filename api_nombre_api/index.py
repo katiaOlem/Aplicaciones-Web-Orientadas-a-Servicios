@@ -10,21 +10,18 @@ class Index():
   def POST(self):
     form=web.input()
     nombre=form.nombre
-    result = requests.get("http://www.omdbapi.com/?i=tt3896198&apikey=a89a7a3b"+nombre)
-    api = result.json()
-    titulo = api["Title"]
-    anio = api["Year"]
-    actores = api["Actors"]
-    director = api["Director"]
-    post = api["Poster"]
-    tipo = api["Type"]
-
+    result = requests.get("https://api.covid19api.com/total/dayone/country/china/status/confirmed"+nombre)
+    cov = result.json()
+    cov_coun = cov[0]
+    cov_country = cov_coun["Country"]
+    cov_country_date = cov_coun["Date"]
+    cov_country_status = cov_coun["Status"]
+    cov_country_cases = cov_coun["Cases"]
     datos={
-      "titulopeli":"Country: "+titulo,
-      "aniopeli":"Datos: "+anio,
-      "actorespeli":"Status: "+actores,
-      "postpeli":"Casos: "+post,
-      "tipopeli":"Tipo: "+tipo,
-      "directorpeli":"Director: "+director
+      "country":"Country: "+cov_country,
+      "dato":"Datos: "+cov_country_date,
+      "status":"Status: "+cov_country_status,
+      "cases":"Casos: "+cov_country_cases
+      
     }
     return render.index(datos)
