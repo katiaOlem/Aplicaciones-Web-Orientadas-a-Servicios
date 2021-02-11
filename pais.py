@@ -1,9 +1,7 @@
 import requests
 import json
 
-
-url = "https://restcountries.eu/rest/v2/all"
-response = requests.get(url)
+response = requests.get("https://restcountries.eu/rest/v2/name/")
 print(response.headers["Content-Type"])
 response = response.json()
 for item in response:
