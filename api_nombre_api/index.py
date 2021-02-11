@@ -10,18 +10,23 @@ class Index():
   def POST(self):
     form=web.input()
     nombre=form.nombre
-    result = requests.get("https://api.covid19api.com/total/dayone/country/china/status/confirmed"+nombre)
-    cov = result.json()
-    cov_coun = cov[0]
-    cov_country = cov_coun["Country"]
-    cov_country_date = cov_coun["Date"]
-    cov_country_status = cov_coun["Status"]
-    cov_country_cases = cov_coun["Cases"]
-    datos={
-      "country":"Country: "+cov_country,
-      "dato":"Datos: "+cov_country_date,
-      "status":"Status: "+cov_country_status,
-      "cases":"Casos: "+cov_country_cases
+    url = "https://restcountries.eu/rest/v2/all"
+    response = requests.get(url)
+    print(response.headers["Content-Type"])
+    response = response.json()
+    for item in response:
       
+      capital = (item["capital"])
+      region = (item["region"])
+      popu = (item["population"])
+      native = (item["nativeName"])
+ 
+    datos={
+      "PAIS":"Pais"+nombre,
+      "CAPITAL":"Capital:"+capital,
+      "REGION":"Region:"+region,
+      "POPULATION":"Sub-Region:"+popu,
+      "NATIVE":"Native: "+native
     }
+      
     return render.index(datos)
