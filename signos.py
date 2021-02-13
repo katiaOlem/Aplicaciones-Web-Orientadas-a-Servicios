@@ -1,4 +1,8 @@
-horoscopo = [
+import json
+
+
+horoscopo =[
+  
     {
       "name":"Aries",
       "elemento": "Fuego",
@@ -155,12 +159,5 @@ horoscopo = [
 
 
 
-
-
-
-
-
-
-
-
   ]
+print(horoscopo[0])
