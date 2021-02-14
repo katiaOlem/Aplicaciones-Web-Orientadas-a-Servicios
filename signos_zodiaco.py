@@ -40,7 +40,7 @@ class Signos():
 
 
       ]
-      horoscopos = {}
+      horoscopo = {}
 
      #//"Aries"
       if dia >= 21 and mes == 3 or mes == 4 and dia <= 20:
