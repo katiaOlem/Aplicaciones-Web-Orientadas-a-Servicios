@@ -160,4 +160,5 @@ horoscopo =[
 
 
   ]
-print(horoscopo[0])
+
+print(horoscopo[11])
