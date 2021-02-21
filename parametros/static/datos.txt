@@ -1,0 +1,6 @@
+
+{'status': 200, 'nombre': 'katia', 'fecha_nacimiento': '04-05-1996', 'edad': '24 años.'}
+{'status': 200, 'nombre': 'Pedro', 'fecha_nacimiento': '15-08-1994', 'edad': '26 años.'}
+{'status': 200, 'nombre': 'Ismael', 'fecha_nacimiento': '18-02-1995', 'edad': '26 años.'}
+{'status': 200, 'nombre': 'Iuz', 'fecha_nacimiento': '19-02-1999', 'edad': '22 años.'}
+{'status': 200, 'nombre': 'Iiz', 'fecha_nacimiento': '17-02-2000', 'edad': '21 años.'}
