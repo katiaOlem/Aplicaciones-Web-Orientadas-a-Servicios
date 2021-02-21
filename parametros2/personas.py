@@ -17,8 +17,7 @@ class Parametros:
         month = int(parametros.month)
         year = int(parametros.year)
         edad = 2021 - year
-        edad = day -1
-        edad = month -1
+
             
 
         dato = {}
