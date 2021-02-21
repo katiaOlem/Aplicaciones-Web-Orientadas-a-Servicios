@@ -29,12 +29,12 @@ class Parametros:
         dato["edad"] = edad
         dato["status"] = 200
         archivo = open("static/datos.txt","a")
-        archivo.write("\nNombre: "+dato["nombre"]+"\n")
-        archivo.write("Fecha de nacimiento: "+dato["day"]+dato["month"]+dato["year"]+".\n")
-        archivo.write("Edad: "+dato["edad"]+"\n")
+        archivo.write("\n")
+        archivo.write(str(dato))
         archivo.close()
         return json.dumps(dato)
-            
+
+      
     except:
            dato = {}
            dato["status"] = "Error *** porfavor verifique sus datos "
