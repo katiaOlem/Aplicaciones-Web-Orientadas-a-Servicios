@@ -1,53 +1,41 @@
 import web
 import json
-import datetime 
+urls = (
+    '/datos?', 'Parametros'
+)
+app = web.application(urls, globals())
 
-urls = {
-  "/datos?","Personas"
-}
+class Parametros:
 
-app = web.application(urls,globals())
+    def GET(self,fecha_naci):
+        try:
+            parametros = web.input()
+            nombre = parametros.nombre
+            day = int(parametros.day)
+            month = int(parametros.month)
+            year = int(parametros.year)
+            edad = 2021 - year
+            edad = day - 1
+            edad = month -1
 
-class Personas(naci):
-  def GET(self):
-    try:
-      personas.web.input()
-      nombre = personas.nombre
-      hoy = datetime.date.today()
-      
-      if hoy < naci:
-        'error en la fecha de nacimiento'
-      else:
-        anio = naci.year
-        mes = naci.month
-        dia = naci.day
-        fecha = naci
-        edad = 0
-       
-      while fecha < hoy:
-        edad += 1
-        fecha = datetime.date(anio+edad, mes, dia)
-        data = {}
-        data["nombre"] = nombre
-        data["anio"] = anio
-        data["mes"] = mes
-        data["dia"] = dia
-        data["edad"] = edad
-        data["fecha"] = fecha
-       
-       archivo = open("static/datos.txt","a")
-       archivo.write("\nNombre: "+data["nombre"]+"\n")
-       archivo.write("Fecha de nacimiento: "+data["fecha"]+".\n")
-       archivo.write("Edad: "+data["edad"]+"\n")
-       archivo.close()
-       return json.dumps(data)
-
-    except:
-      data = {}
-      data["error"] = "Datos Incorrectos!**Verifique sus datos."
-      data["status"] = 404
-      return json.dumps(data)
-
+            dato = {}
+            dato["nombre"] = nombre
+            dato["day"] = day
+            dato["month"] = month
+            dato["year"] = year
+            dato["edad"] = edad
+            dato["status"] = 200
+            archivo = open("static/datos.txt","a")
+            archivo.write("\nNombre: "+dato["nombre"]+"\n")
+            archivo.write("Fecha de nacimiento: "+dato["day"]+dato["month"]+dato["year"]+".\n")
+            archivo.write("Edad: "+dato["edad"]+"\n")
+            archivo.close()
+            return json.dumps(dato)
+            
+        except:
+            dato = {}
+            dato["status"] = "Verifica datos. Error 404 not found"
+            return json.dumps(dato)
 
 if __name__ == "__main__":
-    app.run()
+  app.run()
