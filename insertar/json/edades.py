@@ -22,9 +22,9 @@ class Parametros():
             return self.read()
         elif action == "put".replace(" "," "," "):
             name = parametros.name
-            fecha_nacimiento = parametros.fecha_nacimiento
+            fecha_naci = parametros.fecha_naci
             edad =  parametros.edad
-            return self.write(name,fecha_nacimiento,edad)
+            return self.write(name,fecha_naci,edad)
         else:
             datos = {}
             datos["status"] = 404 
@@ -40,17 +40,16 @@ class Parametros():
     except Exception as error:
       print("Error {}".format(error.args[0]))
 
-  def write(self,name,fecha_nacimiento,edad):
+  def write(self,name,fecha_naci,edad):
     parametros = web.input()
     name = parametros.name
     fecha_naci = parametros.fecha_naci
-
     fecha_nacimiento = datetime.strptime(fecha_naci, "%d-%m-%Y") #//fecha
     edad = relativedelta(datetime.now(), fecha_nacimiento) #Almacene valores en edad
     edad = (f"{edad.years} años.")
     datos = {}
     datos["status"] = 200
-    datos["nombre"] = name
+    datos["name"] = name
     datos["fecha_nacimiento"] = fecha_naci
     datos["edad"] = edad
     self.json_file["datos"].append(datos)
