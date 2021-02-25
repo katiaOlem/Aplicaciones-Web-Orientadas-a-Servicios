@@ -48,7 +48,6 @@ class Parametros():
     edad = relativedelta(datetime.now(), fecha_nacimiento) #Almacene valores en edad
     edad = (f"{edad.years} años.")
     datos = {}
-    datos["status"] = 200
     datos["name"] = name
     datos["fecha_nacimiento"] = fecha_naci
     datos["edad"] = edad
