@@ -1,1 +1,9 @@
-{"personas":[{"nombre":"Katia","email":"abril1622@hotmail.com"}]}
+{
+  "datos":[
+    {
+      "name": "Katia",
+      "fecha_nacimiento": "04-05-1996",
+      "edad": "23"
+    }
+  ]
+}
