@@ -35,15 +35,15 @@ class Parametros:
             fecha_nacimiento = datetime.strptime(fecha_naci, "%d-%m-%Y") #//fecha
             edad = relativedelta(datetime.now(), fecha_nacimiento) #Almacene valores en edad
             edad = (f"{edad.years} años.")
-            datos = {}
-            datos["nombre"] = nombre
-            datos["fecha_nacimiento"] = fecha_naci
-            datos["edad"] = edad
+            datosper = {}
+            datosper["nombre"] = nombre
+            datosper["fecha_nacimiento"] = fecha_naci
+            datosper["edad"] = edad
             
             try:
                 with open("datos.json") as file:
                     self.json_file = json.load(file)
-                    self.json_file["datos"].append(datos)
+                    self.json_file["datos"].append(datosper)
                     with open("datos.json","w") as file:
                         json.dumps(self.json_file, file)
                         datos = {}
