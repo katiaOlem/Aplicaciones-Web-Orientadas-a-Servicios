@@ -12,6 +12,23 @@ class Parametros:
 
     json_file = {}
 
+
+    def GET(self):
+
+        parametros = web.input()
+        action = parametros.action
+
+        if action == "get":
+            return self.read()
+        elif action == "put":
+            nombre = parametros.nombre
+            fecha_naci = parametros.fecha_naci
+            return self.write(nombre, fecha_naci)
+        else:
+            datos = {}
+            datos["result"] = "**Error**"
+            return json.dumps(datos)
+
     def write (self, nombre,fecha_naci):
         try:
 
@@ -48,22 +65,6 @@ class Parametros:
             return json.dumps(self.json_file)
 
 
-
-    def GET(self):
-
-        parametros = web.input()
-        action = parametros.action
-
-        if action == "get":
-            return self.read()
-        elif action == "put":
-            nombre = parametros.nombre
-            fecha_naci = parametros.fecha_naci
-            return self.write(nombre, fecha_naci)
-        else:
-            datos = {}
-            datos["result"] = "**Error**"
-            return json.dumps(datos)
 
 
 if __name__ == "__main__":
