@@ -40,18 +40,6 @@ class Parametros:
             datosper["fecha_nacimiento"] = fecha_naci
             datosper["edad"] = edad
             
-            try:
-                with open("datos.json") as file:
-                    self.json_file = json.load(file)
-                    self.json_file["datos"].append(datosper)
-                    with open("datos.json","w") as file:
-                        json.dumps(self.json_file, file)
-                        datos = {}
-                        return json.dumps(datos)
-            except:
-                datos = {}
-                datos["error"] = "***Error****"
-                return json.dumps(datos)
             
         except:
             datos = {}

@@ -2,7 +2,8 @@
   "datosper":[
     {
       "nombre": "Katia",
-      "fecha_naci": "15-04-1996"
+      "fecha_naci": "15-04-1996",
+      "edad": "24"
       
     }
   ]
