@@ -1,11 +1,9 @@
 {
-  "datosper":[
+  "datos":[
     {
-      "nombre": "Katia",
-      "fecha_naci": "15-04-1996",
-      "edad": "24"
-      
+      "nombre": "Brenda",
+      "fecha_naci":"14-05-1996",
+      "edad": "23",
     }
   ]
 }
-

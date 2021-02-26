@@ -30,27 +30,26 @@ class Parametros:
             return json.dumps(datos)
 
     def write (self, nombre,fecha_naci):
-        try:
 
             fecha_nacimiento = datetime.strptime(fecha_naci, "%d-%m-%Y") #//fecha
             edad = relativedelta(datetime.now(), fecha_nacimiento) #Almacene valores en edad
             edad = (f"{edad.years} años.")
-            datosper = {}
-            datosper["nombre"] = nombre
-            datosper["fecha_nacimiento"] = fecha_naci
-            datosper["edad"] = edad
-            
-            
-        except:
-            datos = {}
-            datos["error"] = "*****Error****"
-        
+            datos = {
+           "nombre" : nombre,
+           "fecha_naci" : fecha_naci,
+           "edad" : edad
+            }
             return json.dumps(datos)
     
     def read(self):
+      try:
         with open("datos.json") as file:
             self.json_file = json.load(file)
+            print(self.json_file)
             return json.dumps(self.json_file)
+
+      except Exception as error:
+        print("Error {}".format(error.args[0]))
 
 
 
