@@ -1,9 +1,3 @@
-{
-  "datos":[
-    {
-      "nombre": "Brenda",
-      "fecha_naci":"14-05-1996",
-      "edad": "23",
-    }
-  ]
-}
+{"nombre": "Fer", "fecha_naci": "04-05-1995", "edad": "25 years."}
+
+{"nombre": "Rosa", "fecha_naci": "05-05-1992", "edad": "28 years."}

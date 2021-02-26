@@ -24,11 +24,7 @@ class Parametros:
             nombre = parametros.nombre
             fecha_naci = parametros.fecha_naci
             return self.write(nombre, fecha_naci)
-        else:
-            datos = {}
-            datos["result"] = "**Error**"
-            return json.dumps(datos)
-
+  
     def write (self, nombre,fecha_naci):
       try:
         fecha_nacimiento = datetime.strptime(fecha_naci, "%d-%m-%Y") #//fecha
@@ -49,24 +45,20 @@ class Parametros:
 
         except  Exception as error:
           print("Error {}".format(error.args[0]))
-          return json.dumps(datos)
             
       except  Exception as error:
         print("Error {}".format(error.args[0]))
-        return json.dumps(datos)
-    
+  
+
     def read(self):
       try:
         with open("datos.json") as file:
-            self.json_file = json.load(file)
-            print(self.json_file)
-            return json.dumps(self.json_file)
-
+          self.json_file = json.load(file)
+          return json.dumps(self.json_file)
       except Exception as error:
         print("Error {}".format(error.args[0]))
 
-
-
+        
 
 if __name__ == "__main__":
     app.run()
